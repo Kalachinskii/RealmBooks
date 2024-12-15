@@ -7,6 +7,13 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="/posts">ПЕРЕЙТИ НА ПОСТ</a>
+    <div>
+        <nav>
+            <ul>
+                <li><a href="#">manga</a></li>
+            </ul>
+        </nav>
+    </div>
+    @yield('countent')
 </body>
 </html>
