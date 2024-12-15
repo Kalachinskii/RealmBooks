@@ -8,4 +8,5 @@
     <div>
         <a href="{{route('post.create')}}">Добавить пост</a>
     </div>
+    
 @endsection
