@@ -9,6 +9,8 @@
         <a href="{{route('post.create')}}">Добавить пост</a>
     </div>
     <div>
-        {{$posts->links()}}
+        {{-- withQueryString() - сохраняет get параметр в links при смене отрисовки 0-10, 11 до 20, 21-30 ... --}}
+        {{-- без него кол-во элементов становиться полным --}}
+        {{$posts->withQueryString()->links()}}
     </div>
 @endsection

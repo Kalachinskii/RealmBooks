@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Traits\Filterable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -9,7 +10,8 @@ class Post extends Model
 {
     // для использования фабрики
     use HasFactory;
-    protected $guarded = [];
+    use Filterable;
+    protected $guarded = false;
 
     public function categorys()
     {
