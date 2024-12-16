@@ -1,5 +1,5 @@
 @extends('loyouts.main')
-@section('countent')
+@section('content')
     <div>
         <form action="{{route('post.store')}}" method="POST">
             {{-- токен = защита --}}
@@ -29,8 +29,8 @@
             <div>
                 <label for="content">Описание: </label>
                 {{-- name в БД неправельно задал потому так --}}
-                <textarea name="countent" id="content" placeholder="Content">{{old('countent')}}</textarea>
-                @error('countent')
+                <textarea name="content" id="content" placeholder="Content">{{old('content')}}</textarea>
+                @error('content')
                     <p style="color: red">{{$message}}</p>
                 @enderror
             </div>

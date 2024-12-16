@@ -26,7 +26,7 @@ class FilterRequest extends FormRequest
         // ФИЛЬТР не работает с required  или  required|string и т.д.
         return [
             'title' => 'string',
-            'countent' => 'string',
+            'content' => 'string',
             'image' => 'string',
             'author' => 'string',
             'hit' => '',

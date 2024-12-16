@@ -1,5 +1,5 @@
 @extends('loyouts.main')
-@section('countent')
+@section('content')
     <div>
         <form action="{{route('post.update', $post->id)}}" method="POST">
             @csrf
@@ -15,7 +15,7 @@
             </div>
             <div>
                 <label for="content">Content</label>
-                <textarea name="countent" id="content">{{$post->countent}}</textarea>
+                <textarea name="content" id="content">{{$post->content}}</textarea>
             </div>
             <div>
                 <label for="category">Категории: </label>

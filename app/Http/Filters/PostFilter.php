@@ -11,6 +11,8 @@ class PostFilter extends AbstractFilter
     // ключи из request
     public const TITLE = 'title';
     public const CONTENT = 'content';
+    public const AUTHOR = 'author';
+
 
     // реализация абстрактного метода возращающий массив методов
     // в котором каждый имеет свой query запрос в БД
@@ -19,6 +21,7 @@ class PostFilter extends AbstractFilter
         return [
             self::TITLE => [$this, 'title'],
             self::CONTENT => [$this, 'content'],
+            self::AUTHOR => [$this, 'author'],
         ];
     }
 
@@ -32,5 +35,10 @@ class PostFilter extends AbstractFilter
     public function content(Builder $builder, $value)
     {
         $builder->where('content', 'like', "%{$value}%");
+    }
+
+    public function author(Builder $builder, $value)
+    {
+        $builder->where('author', 'like', "%{$value}%");
     }
 }

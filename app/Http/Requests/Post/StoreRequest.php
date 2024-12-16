@@ -25,7 +25,7 @@ class StoreRequest extends FormRequest
     {
         return [
             'title' => 'string',
-            'countent' => 'string',
+            'content' => 'string',
             'image' => 'string',
             'author' => 'string',
             'hit' => '',

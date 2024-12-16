@@ -1,5 +1,5 @@
 @extends('loyouts.main')
-@section('countent')
+@section('content')
     @foreach ($posts as $post)
         {{-- реализвация перехода по ссылке --}}
         <div><a href="{{route('post.show', $post->id)}}">{{$post->title}}</a></div>

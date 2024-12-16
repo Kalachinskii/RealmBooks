@@ -1,9 +1,9 @@
 @extends('loyouts.main')
-@section('countent')
+@section('content')
     <h1>ПОСТ</h1>
     <div><b>id: </b>{{$post->id}}</div>
     <div><b>title: </b>{{$post->title}}</div>
-    <div><b>countent: </b>{{$post->countent}}</div>
+    <div><b>content: </b>{{$post->content}}</div>
     <div><b>author: </b>{{$post->author}}</div>
 
     <div>

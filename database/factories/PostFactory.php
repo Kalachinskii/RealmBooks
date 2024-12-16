@@ -20,8 +20,8 @@ class PostFactory extends Factory
     {
         return [
             'title' => $this->faker->sentence(5), // Генерирует случайное название из 5 слов
-            // 'countent' => $this->faker->text(50), 
-            'countent' => $this->faker->paragraph(),
+            // 'content' => $this->faker->text(50), 
+            'content' => $this->faker->paragraph(),
             'image' => $this->faker->imageUrl(), // Генерирует случайное url
             'author' => $this->faker->name(), // Генерирует случайное имя
             'likes' => random_int(0, 1000), // Генерирует случайное число

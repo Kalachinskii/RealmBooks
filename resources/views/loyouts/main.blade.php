@@ -44,6 +44,6 @@
             </div>
         </div>
     </nav>
-    @yield('countent')
+    @yield('content')
 </body>
 </html>
