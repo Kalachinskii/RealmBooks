@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
+    // для использования фабрики
     use HasFactory;
     protected $guarded = [];
 

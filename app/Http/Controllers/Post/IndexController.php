@@ -10,7 +10,9 @@ class IndexController extends Controller
     // Метод __invoke() вызывается, когда скрипт пытается вызвать объект как функцию.
     public function __invoke()
     {
-        $posts = Post::all();
+        // $posts = Post::all();
+        // ПАГИНАЦИЯ - выводи по 10
+        $posts = Post::paginate(10);
         return view('post.index', compact('posts'));
     }
 }
