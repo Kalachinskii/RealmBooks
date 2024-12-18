@@ -6,6 +6,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Route::get('/admin', function () {
+//     return view('admin.index');
+// });
+
+// 'prefix' => 'admin'  = admin/post
+Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin'], function () {
+    Route::group(['namespace' => 'Post'], function () {
+        Route::get('/post', 'IndexController')->name('admin.post.index');
+    });
+});
+
 // однометодные контроллеры (аналог ресурстного)
 // Начиная с Laravel 8, пространство имен для контроллеров больше не подставляется автоматически. 
 Route::group(['namespace' => 'App\Http\Controllers\Post'], function () {

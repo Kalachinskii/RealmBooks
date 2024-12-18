@@ -1,4 +1,4 @@
-@extends('loyouts.main')
+@extends('layouts.main')
 @section('content')
     @foreach ($posts as $post)
         {{-- реализвация перехода по ссылке --}}

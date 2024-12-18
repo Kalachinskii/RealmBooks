@@ -1,4 +1,4 @@
-@extends('loyouts.main')
+@extends('layouts.main')
 @section('content')
     <h1>ПОСТ</h1>
     <div><b>id: </b>{{$post->id}}</div>
