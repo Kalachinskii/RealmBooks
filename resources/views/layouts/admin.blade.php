@@ -232,6 +232,8 @@
                                     <a href="./index.html" class="nav-link active">
                                         <i class="fa fa-book nav-icon"></i>
                                         <p>Посты</p>
+                                        {{-- <span class="badge badge-info right">{{ $posts->count() }}</span> - кол-во постов на текущей странице --}}
+                                        <span class="badge badge-info right">{{ $posts->total() }}</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
