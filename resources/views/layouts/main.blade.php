@@ -52,16 +52,21 @@
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
-                <div>
-                    <!-- auth modal -->
-                    <button type="button mr-4" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#auth">
-                        Войти
-                    </button>
-                    <!-- registr modal -->
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#registration">
-                        Регистрация
-                    </button>
+                <div class="reg-auth-box">
+                    @auth
+                        <span class="me-2 text-black">{{ auth()->user()->email }}</span>
+                        <a href="{{ route('user.logout') }}" class="me-2 btn btn-outline-success">Выйти</a>
+                    @else
+                        <!-- auth modal -->
+                        <button type="button mr-4" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#auth">
+                            Войти
+                        </button>
+                        <!-- registr modal -->
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#registration">
+                            Регистрация
+                        </button>
+                    @endauth
                 </div>
             </div>
         </div>
@@ -84,11 +89,12 @@
                 <p class="login-box-msg mt-3">Войдите, чтобы начать сеанс</p>
 
                 <form action="../../index3.html" method="post">
+                    @csrf
                     <div class="input-group mb-3">
-                        <input type="email" class="form-control" placeholder="Email">
+                        <input type="text" class="form-control" placeholder="Login">
                         <div class="input-group-append">
                             <div class="input-group-text">
-                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                                <span class="fas fa-user"></span>
                             </div>
                         </div>
                     </div>
@@ -104,7 +110,6 @@
                         <div class="col">
                             <button type="submit" class="btn btn-primary btn-block">Sign In</button>
                         </div>
-                        <!-- /.col -->
                     </div>
                 </form>
 
@@ -141,9 +146,10 @@
                 </div>
                 <p class="login-box-msg mt-3">Регистрация нового пользовотеля</p>
 
-                <form action="../../index.html" method="post">
+                <form action="{{ route('user.register') }}" method="post">
+                    @csrf
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Full name">
+                        <input type="text" class="form-control" placeholder="Login" name="login">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-user"></span>
@@ -151,7 +157,7 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="email" class="form-control" placeholder="Email">
+                        <input type="email" class="form-control" placeholder="Email" name="email">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-envelope"></span>
@@ -159,7 +165,7 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control" placeholder="Password">
+                        <input type="password" class="form-control" placeholder="Password" name="password">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
@@ -167,7 +173,8 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control" placeholder="Retype password">
+                        <input type="password" class="form-control" placeholder="Retype password"
+                            name="password_confirmation">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
@@ -175,11 +182,9 @@
                         </div>
                     </div>
                     <div class="row">
-                        <!-- /.col -->
                         <div class="col">
                             <button type="submit" class="btn btn-primary btn-block">Register</button>
                         </div>
-                        <!-- /.col -->
                     </div>
                 </form>
 
@@ -198,6 +203,8 @@
                 <a href="login.html" class="text-center">I already have a membership</a>
             </div>
         </div>
+    </div>
+
 </body>
 
 </html>

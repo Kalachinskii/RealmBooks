@@ -2,10 +2,18 @@
 
 use Illuminate\Support\Facades\Route;
 
+// MAIN
 Route::get('/', function () {
     return view('main');
 });
 
+// USER
+Route::group(['namespace' => 'App\Http\Controllers\User'], function () {
+    Route::post('/', action: 'RegisterController')->name('user.register');
+    Route::get('/logout', action: 'LogoutController')->name('user.logout');
+});
+
+// ADMIN
 // 'prefix' => 'admin' = admin/post
 Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin'], function () {
     Route::group(['namespace' => 'Post'], function () {
@@ -13,6 +21,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin'],
     });
 });
 
+// POST
 // однометодные контроллеры (аналог ресурстного)
 // Начиная с Laravel 8, пространство имен для контроллеров больше не подставляется автоматически. 
 Route::group(['namespace' => 'App\Http\Controllers\Post'], function () {
