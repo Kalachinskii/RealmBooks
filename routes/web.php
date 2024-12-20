@@ -10,6 +10,7 @@ Route::get('/', function () {
 // USER
 Route::group(['namespace' => 'App\Http\Controllers\User'], function () {
     Route::post('/', action: 'RegisterController')->name('user.register');
+    Route::post('/login', action: 'LoginController')->name('user.login');
     Route::get('/logout', action: 'LogoutController')->name('user.logout');
 });
 

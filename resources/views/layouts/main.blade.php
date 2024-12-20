@@ -88,10 +88,11 @@
                 </div>
                 <p class="login-box-msg mt-3">Войдите, чтобы начать сеанс</p>
 
-                <form action="../../index3.html" method="post">
+                <form action="{{ route('user.login') }}" method="post">
                     @csrf
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Login">
+                        <input type="text" class="form-control" placeholder="Login" name="login"
+                            value="{{ old('login') }}">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-user"></span>
@@ -99,7 +100,7 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control" placeholder="Password">
+                        <input type="password" class="form-control" placeholder="Password" name="password">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <i class="fa fa-lock" aria-hidden="true"></i>
