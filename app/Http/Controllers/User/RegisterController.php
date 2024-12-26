@@ -25,13 +25,14 @@ class RegisterController extends Controller
         ];
         // правила
         $rules = [
+            'login' => 'required|string|min:4|max:32',
             'email' => 'required|email|unique:users',
             'password' => 'required|confirmed|min:4|max:16',
         ];
 
         Validator::make($request->all(), $rules, $messages)->validate();
 
-        // закешированный пароль
+        // закешированный пароль (закинуть отдельно в модель)
         $req = $request->all();
         $req['password'] = bcrypt($req['password']);
 

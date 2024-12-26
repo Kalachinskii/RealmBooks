@@ -5,18 +5,19 @@ use Illuminate\Support\Facades\Route;
 // MAIN
 Route::get('/', function () {
     return view('main');
-});
+})->name('home');
 
 // USER
 Route::group(['namespace' => 'App\Http\Controllers\User'], function () {
-    Route::post('/', action: 'RegisterController')->name('user.register');
+    // ограничить доступ - 404
+    Route::post('/register', action: 'RegisterController')->name('user.register');
     Route::post('/login', action: 'LoginController')->name('user.login');
     Route::get('/logout', action: 'LogoutController')->name('user.logout');
 });
 
 // ADMIN
 // 'prefix' => 'admin' = admin/post
-Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin'], function () {
+Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::group(['namespace' => 'Post'], function () {
         Route::get('/post', 'IndexController')->name('admin.post.index');
     });

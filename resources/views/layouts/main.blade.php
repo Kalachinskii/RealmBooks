@@ -83,6 +83,18 @@
                 <div class="modal-header ">
                     <div class="login-logo">
                         <a href="../../index2.html"><b>Admin</b>LTE</a>
+                        {{-- 
+                        Зделать фечь запрос / проверить событие превентдефол на бтн
+                        
+                        @if ($errors->any())
+                            <ul class="bg-danger">
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        @endif
+                        
+                        --}}
                     </div>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
